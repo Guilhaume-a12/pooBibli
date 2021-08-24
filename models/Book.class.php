@@ -6,16 +6,13 @@ class Book {
     private $titre;
     private $image;
     private $pages;
-    public static $livreTab;
 
-    public function __construct($idLivre,$titre,$image,$pages)
+    public function __construct($idLivre,$titre,$pages,$image)
     {
         $this->idLivre = $idLivre;
         $this->titre = $titre;
         $this->image = $image;
         $this->pages = $pages;
-        self::$livreTab[] = $this;
-
     }
 
     /**
@@ -23,7 +20,7 @@ class Book {
      */ 
     public function getTitre()
     {
-        return $this->titre;
+        return htmlspecialchars($this->titre);
     }
 
     /**
