@@ -17,8 +17,8 @@ foreach ($stockBooks as $valeur) {
                 <td class="align-middle"><?=$valeur->getTitre()?></td>
                 <td class="align-middle"><?=$valeur->getPages()?></td>
                 <td class="align-middle"><a href="livres/lire/<?=$valeur->getIdLivre()?>" class="btn btn-success">Lire</a></td>
-                <td class="align-middle"><a href="modifier" class="btn btn-warning">Modifier</a></td>
-                <td class="align-middle"><a href="supprimer" class="btn btn-danger">Supprimer</a></td>
+                <td class="align-middle"><a href="livres/modifier/<?=$valeur->getIdLivre()?>" class="btn btn-warning">Modifier</a></td>
+                <td class="align-middle"><a href="livres/supprimer/<?=$valeur->getIdLivre()?>" class="btn btn-danger">Supprimer</a></td>
             </tr>
         
     <?php
@@ -30,7 +30,6 @@ foreach ($stockBooks as $valeur) {
     <a href="livres/ajouter" class="btn btn-success d-block">Ajouter</a>
 
 <?php
-
 $titre = "Livres";
 $content = ob_get_clean();
 require_once "template.php";

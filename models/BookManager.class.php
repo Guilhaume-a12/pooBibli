@@ -53,4 +53,23 @@ class BookManager extends Model {
         ]);
 
     }
+
+    public function deleteBook($id) {
+        $sql ="DELETE FROM book WHERE idBook = :livre";
+        $req = $this->getDB()->prepare($sql);
+        $result = $req->execute([
+            "livre"=>$id
+        ]);
+    }
+
+    public function modifierLivre($titreLivre,$nbPages,$image,$id) {
+        $sql ="UPDATE book SET nom=:nom, pages=:pages, image=:image WHERE idBook = $id";
+        $req = $this->getDB()->prepare($sql);
+        $result = $req->execute([
+            "nom"=>$titreLivre,
+            "pages"=>$nbPages,
+            "image"=>$image
+        ]);
+    }
+
 }

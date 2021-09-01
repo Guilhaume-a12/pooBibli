@@ -35,4 +35,34 @@ class BookController {
         header("location:".URL."livres");
     }
 
+    public function deleteBookController($id) {
+        $monLivre = $this->BookManager->getBookById($id);
+        require "views/supprimer.php";
+    }
+
+    public function deleteValidate($id) {
+        $monLivre = $this->BookManager->getBookById($id);
+        $this->BookManager->deleteBook($id);
+        header("location:".URL."livres");
+    }
+
+    public function modifierBook($id) {
+        $monLivre = $this->BookManager->getBookById($id);
+        require "views/modifier.php";
+    }
+
+    public function modifierOk($id) {
+        $monLivre = $this->BookManager->getBookById($id);
+        $bookImage = GlobalController::addImage($_FILES);
+
+        if (!empty($_FILES['image'])) {
+
+        $this->BookManager->modifierLivre($_POST['titre'],$_POST['page'],$bookImage,$id);
+
+        }
+
+        header("location:".URL."livres");
+    }
+    
+
 }

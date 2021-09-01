@@ -25,14 +25,20 @@ try {
                 else if ($url[1]=="ajouter") {
                     $controller->ajoutLivre();
                 }
-                else if ($url[1]=="modifier") {
-                    echo "modifier";
-                }
                 else if ($url[1]=="supprimer") {
-                    echo "supprimer";
+                    $controller->deleteBookController($url[2]);
+                }
+                else if ($url[1]=="confirmer") {
+                    $controller->deleteValidate($url[2]);
                 }
                 else if ($url[1]=="validate") {
                     $controller->addBookValidate();
+                }
+                else if ($url[1]=="modifier") {
+                    $controller->modifierBook($url[2]);
+                }
+                else if ($url[1]=="modifierOk") {
+                    $controller->modifierOk($url[2]);
                 }
                 else {
                     throw new Exception ("Error 404, page not found");
